@@ -1,11 +1,21 @@
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
+
+function initNavigation() {
+    const mainNavLinks = gsap.utils.toArray('.main-nav a')
+    console.log(mainNavLinks)
+    mainNavLinks.map(link => {
+        link.addEventListener('mouseleave', e => {
+            link.classList.add('animate-out')
+            setTimeout(() => link.classList.remove('animate-out'), 300)
+        })
+    })
+}
 
 function init(){
     
-    // start here
-
+    initNavigation()
 }
 
 window.addEventListener('load', function(){
-    init();
-});
+    init()
+})
