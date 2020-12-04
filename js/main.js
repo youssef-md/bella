@@ -9,6 +9,15 @@ function initNavigation() {
             setTimeout(() => link.classList.remove('animate-out'), 300)
         })
     })
+
+    ScrollTrigger.create({
+        start: 100,
+        toggleClass: {
+            targets: 'body',
+            className: 'has-scrolled'
+        },
+        markers: true
+    })
 }
 
 function init(){
