@@ -36,6 +36,7 @@ body {
   display: flex;
   align-items: center;
   z-index: 3;
+  pointer-events: none;
 }
 .logo__img {
   width: 55px;
@@ -190,6 +191,7 @@ header h1 span {
   left: 27vw;
   opacity: 0.4;
   pointer-events: none;
+  z-index: 10;
 }
 .cta__circle {
   width: 7.7vw;
@@ -200,6 +202,7 @@ header h1 span {
   left: 58%;
   background: url('../img/img_logo.svg') no-repeat center;
   background-size: 50% 50%;
+  pointer-events: none;
 }
 .cta__circle--logo {
   width: 7.7vw;
@@ -262,7 +265,7 @@ header h1 span {
   opacity: 0.8
 }
 .hg__left .hg__image:nth-child(1) {
-  top: 17vh;
+  top: 15vh;
   left: 15vw;
 }
 .hg__left .hg__image:nth-child(2) {
@@ -274,24 +277,24 @@ header h1 span {
   left: 14vw;
 }
 .hg__right .hg__image:nth-child(1) {
-  top: 15vh;
+  top: 17vh;
   left: auto;
-  right: 21vw;
+  right: 18vw;
   width: 24vw;
   padding-bottom: 21vw;
 }
 .hg__right .hg__image:nth-child(2) {
   top: 27vh;
   left: auto;
-  right: 10vw;
-  z-index: 1;
+  right: 8vw;
 }
 .hg__right .hg__image:nth-child(3) {
   top: 56vh;
   left: auto;
-  right: 19vw;
+  right: 17vw;
   width: 16vw;
   padding-bottom: 20vw;
+  z-index: 1;
 }
 
 /* =Reveal Gallery */
