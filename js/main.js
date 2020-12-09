@@ -80,12 +80,12 @@ function initGallery() {
 function initHoverReveal() {
     const sections = document.querySelectorAll('.rg__column')
     sections.forEach(section => {
-        const imageBlock = section.querySelector('.rg__image')
-        const mask = section.querySelector('.rg__image--mask')
+        section.imageBlock = section.querySelector('.rg__image')
+        section.mask = section.querySelector('.rg__image--mask')
 
         // reset initial position on page load
-        gsap.set(imageBlock, { yPercent: -101 })
-        gsap.set(mask, { yPercent: 100 })
+        gsap.set(section.imageBlock, { yPercent: -101 })
+        gsap.set(section.mask, { yPercent: 100 })
     
         section.addEventListener('mouseenter', createHoverReveal)
         section.addEventListener('mouseleave', createHoverReveal)
@@ -94,7 +94,28 @@ function initHoverReveal() {
 }
 
 function createHoverReveal(e) {
-    console.log(e.type)
+    const { type, target: { imageBlock, mask } } = e
+
+    let tl = gsap.timeline({
+        defaults: {
+            duration: 0.7,
+            ease: 'power4.out'
+        }
+    })
+
+    if(type === 'mouseenter') {
+        tl.to([mask, imageBlock], {
+            duration: 1,
+            yPercent: 0,
+        })
+    } 
+    else if(type === 'mouseleave') {
+        tl
+            .to(mask, { yPercent: 100 })
+            .to(imageBlock, { yPercent: -101 }, 0)
+    }
+
+    return tl
 }
 
 function init(){
