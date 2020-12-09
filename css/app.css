@@ -360,21 +360,13 @@ header h1 span {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  /* transform: translateY(-100%);
-  transition: transform 0.45s var(--easing); */
 }
 .rg__image--mask {
   height: 100%;
   overflow: hidden;
-  /* transition: transform 0.45s var(--easing);
-  transform: translateY(100%); */
 }
 .rg__image img {
   opacity: 0.6;
-}
-.rg__column.is-active .rg__image,
-.rg__column.is-active .rg__image--mask {
-  /* transform: translateY(0); */
 }
 .rg__text--copy {
   position: absolute;

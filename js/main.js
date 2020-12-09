@@ -39,7 +39,6 @@ function initNavigation() {
 
 function initHeaderTilt() {
     document.querySelector('header').addEventListener('mousemove', moveImages)
-
 }
 
 function moveImages(e) {
@@ -74,10 +73,35 @@ function moveImages(e) {
     }
 }
 
+function initGallery() {
+    initHoverReveal()
+}
+
+function initHoverReveal() {
+    const sections = document.querySelectorAll('.rg__column')
+    sections.forEach(section => {
+        const imageBlock = section.querySelector('.rg__image')
+        const mask = section.querySelector('.rg__image--mask')
+
+        // reset initial position on page load
+        gsap.set(imageBlock, { yPercent: -101 })
+        gsap.set(mask, { yPercent: 100 })
+    
+        section.addEventListener('mouseenter', createHoverReveal)
+        section.addEventListener('mouseleave', createHoverReveal)
+
+    })
+}
+
+function createHoverReveal(e) {
+    console.log(e.type)
+}
+
 function init(){
 
     initNavigation()
     initHeaderTilt()
+    initGallery()
 }
 
 window.addEventListener('load', function(){
