@@ -82,6 +82,8 @@ function initHoverReveal() {
     sections.forEach(section => {
         section.imageBlock = section.querySelector('.rg__image')
         section.mask = section.querySelector('.rg__image--mask')
+        section.text = section.querySelector('.rg__text')
+        section.textCopy = section.querySelector('.rg__text--copy')
 
         // reset initial position on page load
         gsap.set(section.imageBlock, { yPercent: -101 })
@@ -94,7 +96,7 @@ function initHoverReveal() {
 }
 
 function createHoverReveal(e) {
-    const { type, target: { imageBlock, mask } } = e
+    const { type, target: { imageBlock, mask, text, textCopy } } = e
 
     let tl = gsap.timeline({
         defaults: {
@@ -104,15 +106,20 @@ function createHoverReveal(e) {
     })
 
     if(type === 'mouseenter') {
-        tl.to([mask, imageBlock], {
-            duration: 1,
-            yPercent: 0,
-        })
+        tl
+            // .to([mask, imageBlock], {
+            //     duration: 1,
+            //     yPercent: 0,
+            // })
+            .to(text, {
+                y: -textCopy.clientHeight / 2
+            })
     } 
     else if(type === 'mouseleave') {
         tl
-            .to(mask, { yPercent: 100 })
-            .to(imageBlock, { yPercent: -101 }, 0)
+            // .to(mask, { yPercent: 100 })
+            // .to(imageBlock, { yPercent: -101 }, 0)
+            .to(text, { y: 0 })
     }
 
     return tl
