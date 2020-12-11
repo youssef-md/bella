@@ -372,6 +372,9 @@ header h1 span {
   position: absolute;
   overflow: hidden;
 }
+.rg__text--copy p {
+  margin: 0;
+}
 .rg__text--mask {
   overflow: hidden;
 }
