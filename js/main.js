@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger)
+const sections = document.querySelectorAll('.rg__column')
 
 function initNavigation() {
     const mainNavLinks = gsap.utils.toArray('.main-nav a')
@@ -78,7 +79,6 @@ function initGallery() {
 }
 
 function initHoverReveal() {
-    const sections = document.querySelectorAll('.rg__column')
     sections.forEach(section => {
         section.imageBlock = section.querySelector('.rg__image')
         section.image = section.querySelector('.rg__image img')
@@ -129,13 +129,45 @@ function createHoverReveal(e) {
     return tl
 }
 
-function init(){
+// function init(){
 
-    initNavigation()
-    initHeaderTilt()
-    initGallery()
+//     initNavigation()
+//     initHeaderTilt()
+// }
+
+// window.addEventListener('load', function(){
+//     init()
+// })
+
+
+const mq = window.matchMedia('(max-width: 768px)')
+
+mq.addEventListener('change', handleWidthChange)
+
+handleWidthChange()
+
+function resetProps(elements) {
+    if(elements.length) {
+        gsap.killTweensOf('*')
+        elements.forEach(el => {
+            el && gsap.set(el, { clear: 'all' })
+        })
+    }
 }
 
-window.addEventListener('load', function(){
-    init()
-})
+function handleWidthChange(e) {
+    
+    if(mq.matches) {
+        sections.forEach(section => {
+            section.removeEventListener('mouseenter', createHoverReveal)
+            section.removeEventListener('mouseleave', createHoverReveal)
+
+            const { imageBlock, mask, text, textCopy, textMask, textP, image } = section
+            resetProps([imageBlock, mask, text, textCopy, textMask, textP, image])
+
+        })
+    }
+    else {
+        initGallery()
+    }
+}
