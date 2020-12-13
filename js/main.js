@@ -147,13 +147,12 @@ function createPortfolioHover(e) {
     const smallImage = document.querySelector('.portfolio__image--s')
     const lInside = document.querySelector('.portfolio__image--l .image_inside')
     const sInside = document.querySelector('.portfolio__image--s .image_inside')
-
+    
+    const { color, imagelarge, imagesmall } = e.target.dataset
+    const allSiblings = allLinks.filter(item => item != e.target)
+    
+    const tl = gsap.timeline()
     if(e.type === 'mouseenter') {
-  
-        const { color, imagelarge, imagesmall } = e.target.dataset
-        const allSiblings = allLinks.filter(item => item != e.target)
-
-        const tl = gsap.timeline()
         tl
             .set(lInside, { backgroundImage: `url(${imagelarge})` })
             .set(sInside, { backgroundImage: `url(${imagesmall})` })
@@ -162,15 +161,14 @@ function createPortfolioHover(e) {
             .to(e.target, { color: '#fff', autoAlpha: 1 }, 0)
             .to(pageBackground, { backgroundColor: color, ease: 'none' }, 0)
 
-
     } else if(e.type === 'mouseleave'){
- 
-        // fade out images
-        // all links back to black
-        // change background color back to default #ACB7AE
- 
+        tl
+            .to([largeImage, smallImage], { autoAlpha: 0 })
+            .to(allLinks, { color: "#000", autoAlpha: 1 }, 0)
+            .to(pageBackground, { backgroundColor: "#ACB7AE", ease: 'none' }, 0)
+
+    
     }
- 
 }
  
 function init(){
