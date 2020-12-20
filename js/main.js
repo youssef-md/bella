@@ -180,10 +180,10 @@ function initImageParallax() {
         const image = section.querySelector('img')
 
         gsap.to(image, {
-            yPercent: 26,
+            yPercent: 27,
             ease: 'none',
             scrollTrigger: {
-                trigger: image,
+                trigger: section,
                 start: 'top bottom', // when the top of que image is at the bottom of the page...
                 scrub: true // 
             }
