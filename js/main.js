@@ -191,12 +191,24 @@ function initImageParallax() {
     })
 }
 
+function initPinSteps() {
+    ScrollTrigger.create({
+        trigger: '.fixed-nav',
+        pin: true,
+        start: 'top center',
+        endTrigger: '#stage4',
+        end: 'center center',
+        markers: true
+    })
+}
+
 function init(){
     initNavigation()
     initGallery()
     initHeaderTilt()
     initPortfolioHover()
     initImageParallax()
+    initPinSteps()
 }
 
 window.addEventListener('load', function(){
