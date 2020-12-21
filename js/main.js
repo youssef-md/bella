@@ -74,11 +74,8 @@ function moveImages(e) {
     }
 }
 
-function initGallery() {
-    initHoverReveal()
-}
 
-function initHoverReveal() {
+function initGallery() {
     sections.forEach(section => {
         section.imageBlock = section.querySelector('.rg__image')
         section.image = section.querySelector('.rg__image img')
@@ -178,10 +175,28 @@ function createPortfolioMove(e) {
     gsap.to(smallImage, { duration: 1.5, y: offset / 2, ease: 'power4.out' })
 }
 
+function initImageParallax() {
+    gsap.utils.toArray('.with-parallax').forEach(section => {
+        const image = section.querySelector('img')
+
+        gsap.to(image, {
+            yPercent: 26,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: image,
+                start: 'top bottom', // when the top of que image is at the bottom of the page...
+                scrub: true // 
+            }
+        })
+    })
+}
+
 function init(){
     initNavigation()
+    initGallery()
     initHeaderTilt()
     initPortfolioHover()
+    initImageParallax()
 }
 
 window.addEventListener('load', function(){
