@@ -207,6 +207,10 @@ function initPinSteps() {
         return vh;
     }
     
+    const updateBodyColor = (color) => {
+        document.documentElement.style.setProperty('--bcg-fill-color', color)
+    }
+
     gsap.utils.toArray('.stage').forEach((stage, index) => {
         const navLinks = gsap.utils.toArray('.fixed-nav li')
 
@@ -218,6 +222,8 @@ function initPinSteps() {
                 targets: navLinks[index],
                 className: 'is-active'
             },
+            onEnter: () => updateBodyColor(stage.dataset.color),
+            onEnterBack: () => updateBodyColor(stage.dataset.color),
         })
     })
 }
