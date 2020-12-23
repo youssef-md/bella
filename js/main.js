@@ -228,6 +228,18 @@ function initPinSteps() {
     })
 }
 
+function initScrollTo() {
+    gsap.utils.toArray('.fixed-nav a').forEach(link => {
+        const target = link.getAttribute('href')
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            gsap.to(window, { duration: 1, scrollTo: target, ease: 'power2.out'})
+        })
+    })
+}
+
 function init(){
     initNavigation()
     initGallery()
@@ -235,6 +247,7 @@ function init(){
     initPortfolioHover()
     initImageParallax()
     initPinSteps()
+    initScrollTo()
 }
 
 window.addEventListener('load', function(){
