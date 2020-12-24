@@ -234,10 +234,13 @@ function initScrollTo() {
 
         link.addEventListener('click', (e) => {
             e.preventDefault()
-
             gsap.to(window, { duration: 1, scrollTo: target, ease: 'power2.out'})
         })
     })
+}
+
+function initSmoothScrollbar() {
+    Scrollbar.init(document.querySelector('#viewport'))
 }
 
 function init(){
@@ -248,6 +251,7 @@ function init(){
     initImageParallax()
     initPinSteps()
     initScrollTo()
+    initSmoothScrollbar()
 }
 
 window.addEventListener('load', function(){
