@@ -243,6 +243,10 @@ function initSmoothScrollbar() {
     Scrollbar.init(document.querySelector('#viewport'))
 }
 
+function initLoader() {
+    
+}
+
 function init(){
     initNavigation()
     initGallery()
@@ -251,7 +255,7 @@ function init(){
     initImageParallax()
     initPinSteps()
     initScrollTo()
-    initSmoothScrollbar()
+    // initSmoothScrollbar()
 }
 
 window.addEventListener('load', function(){
