@@ -244,7 +244,22 @@ function initSmoothScrollbar() {
 }
 
 function initLoader() {
+    const tlLoaderIn = gsap.timeline({
+        defaults: {
+            duration: 1.1,
+            ease: 'power2.out'
+        }
+    })
+
+    const loaderInner = document.querySelector('.loader .inner')
     
+    tlLoaderIn.from(loaderInner, {
+        scaleY: 0,
+        transformOrigin: 'bottom',
+    }, 0.2)
+
+    
+
 }
 
 function init(){
@@ -255,6 +270,7 @@ function init(){
     initImageParallax()
     initPinSteps()
     initScrollTo()
+    initLoader()
     // initSmoothScrollbar()
 }
 
