@@ -444,7 +444,7 @@ header h1 span {
   justify-content: center;
   align-items: center;
   background: transparent;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 .loader__title {
   font-size: 7vw;

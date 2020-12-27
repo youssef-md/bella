@@ -244,6 +244,9 @@ function initSmoothScrollbar() {
 }
 
 function initLoader() {
+    const select = (e) => document.querySelector(e)
+    const selectAll = (e) => document.querySelectorAll(e)
+    
     const tlLoaderIn = gsap.timeline({
         defaults: {
             duration: 1.1,
@@ -251,14 +254,25 @@ function initLoader() {
         }
     })
 
-    const loaderInner = document.querySelector('.loader .inner')
-    
-    tlLoaderIn.from(loaderInner, {
-        scaleY: 0,
-        transformOrigin: 'bottom',
-    }, 0.2)
+    const loaderInner = select('.loader .inner')
+    const image = select('.loader__image img')
+    const mask = select('.loader__image--mask')
+    const line1 = select('.loader__title--mask:nth-child(1) span')
+    const line2 = select('.loader__title--mask:nth-child(2) span')
 
-    
+    tlLoaderIn
+        .from(loaderInner, {
+            scaleY: 0,
+            transformOrigin: 'bottom',
+        }, 0.2)
+        .addLabel('revealImage')
+        .from(mask, {
+            yPercent: 100
+        }, 'revealImage-=0.8')
+        // changes the offset from the mask(image's div) with the image
+        .from(image, {
+            yPercent: -60
+        }, 'revealImage-=0.8')
 
 }
 
