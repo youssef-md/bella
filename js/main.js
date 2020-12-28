@@ -253,7 +253,7 @@ function initLoader() {
             ease: 'power2.out'
         }
     })
-
+ 
     const loaderInner = select('.loader .inner')
     const image = select('.loader__image img')
     const mask = select('.loader__image--mask')
@@ -269,10 +269,14 @@ function initLoader() {
         .from(mask, {
             yPercent: 100
         }, 'revealImage-=0.8')
-        // changes the offset from the mask(image's div) with the image
+        // Creates a parallax, the mask animates from bottom - top, the image does the same + top - bottom
         .from(image, {
-            yPercent: -60
+            yPercent: -60,
         }, 'revealImage-=0.8')
+        .from([line1, line2], {
+            yPercent: 100,
+            stagger: 0.1
+        }, 'revealImage-=0.5')
 
 }
 
