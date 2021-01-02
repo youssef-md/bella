@@ -416,7 +416,7 @@ header h1 span {
   top: 0;
   left: 0;
   width: 100%;
-  /* visibility: hidden; */
+  visibility: hidden;
   overflow: hidden;
 }
 .loader__mask {
@@ -469,6 +469,9 @@ header h1 span {
 }
 .loader__title--mask {
   overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 .loader__title--mask span {
   display: block;
