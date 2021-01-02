@@ -15,11 +15,13 @@
 
 </head>
 
-<body class="is-loading">
+<body class="is-loading" data-barba="wrapper">
 
     <div class="loader">
         <div class="loader__mask">
-            <div class="inner"></div> <!-- this will scale up -->
+            <div class="inner">
+                <div class="progress"></div>
+            </div> <!-- this will scale up -->
         </div>
     </div>
     <div class="loader__content">
@@ -50,8 +52,8 @@
     </div>
     <nav class="main-nav">
         <ul>
-            <li><a href="#0">Our Values</a></li>
-            <li><a href="#0">Portfolio</a></li>
+            <li><a href="index.html">Our Values</a></li>
+            <li><a href="index2.html">Portfolio</a></li>
             <li><a href="#0">Blog</a></li>
             <li><a href="#0">How We Work</a></li>
             <li><a href="#0">Contact</a></li>
@@ -59,7 +61,8 @@
     </nav>
 
     <div id="viewport">
-        <main id="main">
+
+        <main id="main" data-barba="container">
                 
             <header data-color="#ACB7AE">
                 <h1>
@@ -97,14 +100,14 @@
                     <div class="cta__circle--logo"></div>
                 </div>
             </header>
-    
+
             <article>
                 <!-- Reveal Gallery -->
                 <section class="reveal-gallery">
                     <h2 class="chapter">
                         <span>001 -</span> Our Values
                     </h2>
-    
+
                     <div class="rg__column left" data-color="#a6b3b3">
                         <div class="rg__text">
                             <div class="rg__text--heading">
@@ -161,7 +164,7 @@
                     </div>
                 </section>
                 <!-- /Reveal Gallery -->
-    
+
                 <!-- Portfolio - fade background colors on hover-->
                 <section class="portfolio with-padding">
                     <h2 class="chapter">
@@ -175,20 +178,20 @@
                         <a href="#0" data-color="#afaba2" data-imagelarge="./img/img_portfolio-01-480-720.jpg" data-imagesmall="./img/img_portfolio-02-480-720.jpg">Accusantium Bold</a>  
                     </div>
                     <div class="portfolio__image--l">
-                        <div class="image_inside"></div>
+                        <div class="image_inside" style="background-image: url('./img/img_portfolio-02-480-720.jpg')"></div>
                     </div>   
                     <div class="portfolio__image--s">
-                        <div class="image_inside"></div>
+                        <div class="image_inside" style="background-image: url('./img/img_portfolio-01-480-720.jpg')"></div>
                     </div> 
                 </section>
                 <!-- /Portfolio -->
-    
+
                 <!-- Blog -->
-                <section class="blog with-padding-bottom">
+                <section class="blog with-padding-bottom with-parallax">
                     <h2 class="chapter">
                         <span>003 -</span> Blog
                     </h2>
-                    <div class="blog__post with-parallax">
+                    <div class="blog__post">
                         <div class="blog__image">
                             <img src="./img/img_portfolio-02-480-720.jpg" />
                         </div>
@@ -199,7 +202,7 @@
                     </div>
                 </section>
                 <!-- /Blog -->
-    
+
                 <!-- How We Work -->
                 <section class="how-we-work with-padding">
                     <h2 class="chapter">
@@ -207,7 +210,7 @@
                     </h2>
                     <div class="fixed-nav">
                         <ul>
-                            <li><a href="#stage1">Amet Consectetur </a></li>
+                            <li class="is-active"><a href="#stage1">Amet Consectetur </a></li>
                             <li><a href="#stage2">Eum Similique</a></li>
                             <li><a href="#stage3">Cupiditate Vel</a></li>
                             <li><a href="#stage4">Dignissimos Sed</a></li>
@@ -263,13 +266,13 @@
                     </div>
                 </section>
                 <!-- /How We Work -->
-    
+
                 <!-- Contact -->
-                <section class="contact with-padding-bottom is-flipped">
+                <section class="contact with-padding-bottom is-flipped with-parallax">
                     <h2 class="chapter">
                         <span>005 -</span> Contact
                     </h2>
-                    <div class="blog__post with-parallax">
+                    <div class="blog__post">
                         <div class="blog__image">
                             <img src="./img/img_portfolio-02-480-720.jpg" />
                         </div>
@@ -280,19 +283,21 @@
                     </div>
                 </section>
                 <!-- /Contact -->
-    
+
             </article>
-    
+
         </main> <!-- #main-container -->
-    </div>
 
-    <!-- fill background between sections with margin - eg. portfolio  -->
-    <aside class="fill-background"></aside>
+        <!-- fill background between sections with margin - eg. portfolio  -->
+        <aside class="fill-background"></aside>
 
+    </div><!-- #viewport -->
+
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js" integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.3/smooth-scrollbar.js" integrity="sha512-EkxhY1yhXrjhnDu8o0mHvJHXbH5JsEWz2oNsrFrtW5q5J9l9hV8V5Oid6wpL3Dyu71wlc5YbLPNnul2b7FwNMQ==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/smooth-scrollbar@latest/dist/smooth-scrollbar.js"></script>
     <script src="js/main.js" defer></script>
 
 </body>

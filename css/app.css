@@ -12,7 +12,6 @@
 
   --bcg-loaderblue: #758A94;
   --bcg-loaderbluedark: #566C76;
-
   --bcg-fill-color: var(--bcg-green);
 
   --loader-width: 27.36vw;
@@ -27,33 +26,31 @@
 body {
   font: 16px/1.7 'Source Sans Pro', Helvetica, Helvetica Neue, Arial, sans-serif;
   color: var(--text-dark-color);
-  overflow-y: scroll;
 }
-
 /* hide page content by default */
 .is-loading #main,
 .is-loading .logo,
 .is-loading .burger,
 .is-loading .main-nav,
 .is-loading .fill-background {
-  display: none;
+  display: none; 
 }
 .is-loading {
   background-color: var(--bcg-loaderblue);
 }
-.loader__mask {
-  background: var(--bcg-loaderblue) url('../img/img_logo.svg') no-repeat center;
-  background-size: 155px 155px;
+.is-transitioning {
+  pointer-events: none;
+  cursor: progress;
 }
 
-/* #viewport {
-  overflow: hidden;
+#viewport {
+  overflow: hidden; 
   position: fixed;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-} */
+}
 
 /* =Top Nav */
 .logo {
@@ -145,7 +142,7 @@ body {
   position: relative;
   overflow: hidden;
 }
-.main-nav a:after {
+.main-nav a::after {
   display: block;
   content: '';
   height: 2px;
@@ -219,7 +216,6 @@ header h1 span {
   left: 27vw;
   opacity: 0.4;
   pointer-events: none;
-  z-index: 10;
 }
 .cta__circle {
   width: 7.7vw;
@@ -293,7 +289,7 @@ header h1 span {
   opacity: 0.8
 }
 .hg__left .hg__image:nth-child(1) {
-  top: 15vh;
+  top: 17vh;
   left: 15vw;
 }
 .hg__left .hg__image:nth-child(2) {
@@ -305,21 +301,21 @@ header h1 span {
   left: 14vw;
 }
 .hg__right .hg__image:nth-child(1) {
-  top: 17vh;
+  top: 15vh;
   left: auto;
-  right: 18vw;
+  right: 21vw;
   width: 24vw;
   padding-bottom: 21vw;
 }
 .hg__right .hg__image:nth-child(2) {
   top: 27vh;
   left: auto;
-  right: 8vw;
+  right: 10vw;
 }
 .hg__right .hg__image:nth-child(3) {
   top: 56vh;
   left: auto;
-  right: 17vw;
+  right: 19vw;
   width: 16vw;
   padding-bottom: 20vw;
   z-index: 1;
@@ -328,7 +324,7 @@ header h1 span {
 /* =Reveal Gallery */
 .reveal-gallery {
   width: 100%;
-  height: 100vh;
+  height: 104vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -369,9 +365,9 @@ header h1 span {
   font-weight: 300;
   letter-spacing: .03vw;
 }
-/* .rg__column.left {background-color:var(--bcg-lightgreen)}
-.rg__column.center {background-color: var(--bcg-lightbrown)}
-.rg__column.right {background-color:var(--bcg-lightblue)} */
+.rg__text--copy p {
+  margin: 0
+}
 .rg__column::before {
   display: block;
   position: absolute;
@@ -400,9 +396,6 @@ header h1 span {
   position: absolute;
   overflow: hidden;
 }
-.rg__text--copy p {
-  margin: 0;
-}
 .rg__text--mask {
   overflow: hidden;
 }
@@ -426,9 +419,8 @@ header h1 span {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: var(--bcg-loaderblue);
   background: var(--bcg-loaderblue) url('../img/img_logo.svg') no-repeat center;
-
+  background-size: 155px 155px;
   overflow: hidden;
 }
 .loader .inner,
@@ -438,6 +430,15 @@ header h1 span {
 }
 .loader .inner {
   background-color: var(--bcg-loaderbluedark);
+  position: relative;
+}
+.loader .progress {
+  background-color: var(--bcg-lightblue);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--loader-width);
+  height: var(--loader-height);
 }
 .loader__content {
   z-index: 4;
@@ -445,7 +446,7 @@ header h1 span {
   justify-content: center;
   align-items: center;
   background: transparent;
-  /* visibility: hidden; */
+  visibility: hidden; /* hide loader content by default */
 }
 .loader__title {
   font-size: 7vw;
@@ -469,9 +470,6 @@ header h1 span {
 }
 .loader__title--mask {
   overflow: hidden;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 .loader__title--mask span {
   display: block;
@@ -569,8 +567,8 @@ section {
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: var(--bcg-fill-color);
   will-change: background-color;
+  background-color: var(--bcg-fill-color);
   transition: background-color 0.3s linear;
 }
 
@@ -716,11 +714,9 @@ section {
 
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
 
-  .reveal-gallery {
-    flex-direction: column;
-  }
+
 }
 
 @media only screen and (min-width: 1140px) {

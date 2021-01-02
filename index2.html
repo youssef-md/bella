@@ -1,0 +1,158 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>ScrollTrigger - Bella One Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="is-loading" data-barba="wrapper">
+
+    <div class="loader">
+        <div class="loader__mask">
+            <div class="inner">
+                <div class="progress"></div>
+            </div> <!-- this will scale up -->
+        </div>
+    </div>
+    <div class="loader__content">
+        <div class="inner">
+            <!-- this will be animated on top of the dark background -->
+            <div class="loader__title">
+                <div class="loader__title--mask"><span>Anything </span></div>
+                <div class="loader__title--mask"><span>Is Possible</span></div>
+            </div>
+            <div class="loader__image">
+                <div class="loader__image--mask">
+                    <img src="./img/img_landscape-01-large.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logo">
+        <span class="logo__img"></span>
+        <span class="logo__text">Bella</span>
+    </div>
+    <div class="burger">
+        <button class="burger__open">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Our Values</a></li>
+            <li><a href="index2.html">Portfolio</a></li>
+            <li><a href="#0">Blog</a></li>
+            <li><a href="#0">How We Work</a></li>
+            <li><a href="#0">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="viewport">
+
+        <main id="main" data-barba="container">
+                
+            <header data-color="#ACB7AE">
+                <h1>
+                    <span>Another</span> 
+                    <span>Awesome</span> 
+                    <span>Page</span>
+                </h1>
+                <p class="subtitle">VOLUPTAS AUT <br />& VERITASIS NOSTRUM</p>
+                <div class="decor__circle"></div>
+                <div class="header__gallery">
+                    <div class="hg__left">
+                        <div class="hg__image hg__image--l">
+                            <img src="./img/img_landscape-01-large.jpg" />
+                        </div>
+                        <div class="hg__image hg__image--m">
+                            <img src="./img/img_landscape-02-large.jpg" />
+                        </div>
+                        <div class="hg__image hg__image--s">
+                            <img src="./img/img_landscape-03-large.jpg" />
+                        </div>
+                    </div>
+                    <div class="hg__right">
+                        <div class="hg__image hg__image--l">
+                            <img src="./img/img_landscape-03-large.jpg" />
+                        </div>
+                        <div class="hg__image hg__image--m">
+                            <img src="./img/img_landscape-01-large.jpg" />
+                        </div>
+                        <div class="hg__image hg__image--s">
+                            <img src="./img/img_landscape-02-large.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="cta__circle">
+                    <div class="cta__circle--logo"></div>
+                </div>
+            </header>
+
+            <article>
+
+                <!-- Blog -->
+                <section class="blog with-padding-bottom with-parallax">
+                    <h2 class="chapter">
+                        <span>003 -</span> Blog
+                    </h2>
+                    <div class="blog__post">
+                        <div class="blog__image">
+                            <img src="./img/img_portfolio-02-480-720.jpg" />
+                        </div>
+                        <div class="blog__text">
+                            <p class="post__date">17.08.20</p>
+                            <h3>Quae Accusamus Consequuntur Sequi Ullam</h3>
+                        </div>
+                    </div>
+                </section>
+                <!-- /Blog -->
+
+                <!-- Contact -->
+                <section class="contact with-padding-bottom is-flipped with-parallax">
+                    <h2 class="chapter">
+                        <span>005 -</span> Contact
+                    </h2>
+                    <div class="blog__post">
+                        <div class="blog__image">
+                            <img src="./img/img_portfolio-02-480-720.jpg" />
+                        </div>
+                        <div class="blog__text">
+                            <h3>Quae Accusamus Consequuntur</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, sed.</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- /Contact -->
+
+            </article>
+
+        </main> <!-- #main-container -->
+
+        <!-- fill background between sections with margin - eg. portfolio  -->
+        <aside class="fill-background"></aside>
+
+    </div><!-- #viewport -->
+
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/smooth-scrollbar@latest/dist/smooth-scrollbar.js"></script>
+    <script src="js/main.js" defer></script>
+
+</body>
+
+</html>
